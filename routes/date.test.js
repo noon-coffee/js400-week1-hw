@@ -4,7 +4,9 @@ const DateMock = require("jest-date-mock");
 const server = require("../server");
 
 beforeAll(() => {
-  DateMock.advanceTo(new Date(2020, 5, 26));
+  //fix: The "mock" month should be 4 since the months param is zero-based and the
+  //endpoint functionality is converting it to typical calendar convention of 1-based.
+  DateMock.advanceTo(new Date(2020, 4, 26));
 });
 
 afterAll(() => {

@@ -16,13 +16,14 @@ describe("/string", () => {
     });
   });
   describe("GET /uppercase", () => {
+    //fix: change to call the appropriate endpoint for uppercase functionality
     it("should not change an already uppercase version of a string", async () => {
-      const res = await request(server).get("/string/TEST/lowercase");
+      const res = await request(server).get("/string/TEST/uppercase");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ uppercase: "TEST" });
     });
     it("should return an uppercase version of a string", async () => {
-      const res = await request(server).get("/string/otHEr/lowercase");
+      const res = await request(server).get("/string/otHEr/uppercase");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ uppercase: "OTHER" });
     });
